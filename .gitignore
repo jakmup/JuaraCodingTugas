@@ -1,0 +1,14 @@
+# Output dari Build dan Test
+target/
+test-output/
+test-reports/
+
+# Pengaturan IDE
+.vscode/
+.idea/
+
+# File Log
+*.log
+
+# File spesifik sistem operasi
+.DS_Store

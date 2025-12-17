@@ -1,0 +1,31 @@
+package com.juaracoding.hadir.base;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class BasePage {
+    
+    public static final int WAITING_TIME_IN_SECONDS = 10;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+
+    public BasePage(WebDriver driver){
+        this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(WAITING_TIME_IN_SECONDS));
+    }
+
+    public WebElement waitingElementReady(By elementBy){
+        return wait.until(ExpectedConditions.presenceOfElementLocated(elementBy));
+    }
+
+    public List<WebElement> waitingElementsReady(By elementsBy){
+        List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(elementsBy));
+        return elements;
+    }
+}
