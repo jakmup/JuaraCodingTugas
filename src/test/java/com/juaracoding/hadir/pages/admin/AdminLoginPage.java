@@ -19,5 +19,8 @@ public class AdminLoginPage extends BasePage{
         waitingElementReady(usernamefield).sendKeys(username);
         waitingElementReady(passwordfield).sendKeys(password);
         waitingElementReady(loginButton).click();
+
+        new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(10))
+        .until(org.openqa.selenium.support.ui.ExpectedConditions.urlContains("dashboard"));
     }
 }
